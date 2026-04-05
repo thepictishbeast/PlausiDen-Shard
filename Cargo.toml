@@ -1,0 +1,30 @@
+[package]
+name = "plausiden-shard"
+version = "0.1.0"
+edition = "2024"
+license = "BSL-1.1"
+description = "Cryptographic sharding engine — post-quantum fragment lifecycle"
+repository = "https://github.com/redcaptian1917/PlausiDen-Shard"
+
+# no_std support via default-features = false
+[features]
+default = ["std"]
+std = ["serde/std", "serde_json/std", "chrono/std", "rand/std"]
+
+[dependencies]
+serde = { version = "1", default-features = false, features = ["derive", "alloc"] }
+serde_json = { version = "1", default-features = false, features = ["alloc"] }
+chacha20poly1305 = "0.10"
+blake3 = { version = "1", default-features = false }
+ed25519-dalek = { version = "2", default-features = false, features = ["serde"] }
+zeroize = { version = "1", features = ["derive"] }
+rand = { version = "0.8", default-features = false }
+rand_chacha = { version = "0.3", default-features = false }
+chrono = { version = "0.4", default-features = false, features = ["serde", "clock"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+thiserror = "2"
+tracing = "0.1"
+
+[dev-dependencies]
+proptest = "1"
+tokio = { version = "1", features = ["full"] }
