@@ -89,31 +89,39 @@ impl ReplicationManager {
 
     /// Mark a peer as having lost a fragment.
     pub fn mark_lost(&mut self, fragment_id: &str, peer: &str) {
+        let min_r = self.config.min_replicas;
+        let target_r = self.config.target_replicas;
         if let Some(frag) = self.fragments.get_mut(fragment_id) {
             frag.peers.retain(|p| p != peer);
             frag.current_replicas = frag.peers.len() as u8;
             frag.healthy_replicas = frag.current_replicas;
-            frag.status = self.compute_status(frag.current_replicas);
+            frag.status = Self::compute_status_static(frag.current_replicas, min_r, target_r);
         }
     }
 
     /// Add a new replica peer.
     pub fn add_replica(&mut self, fragment_id: &str, peer: String) {
+        let min_r = self.config.min_replicas;
+        let target_r = self.config.target_replicas;
         if let Some(frag) = self.fragments.get_mut(fragment_id) {
             if !frag.peers.contains(&peer) {
                 frag.peers.push(peer);
                 frag.current_replicas = frag.peers.len() as u8;
                 frag.healthy_replicas = frag.current_replicas;
-                frag.status = self.compute_status(frag.current_replicas);
+                frag.status = Self::compute_status_static(frag.current_replicas, min_r, target_r);
             }
         }
     }
 
     fn compute_status(&self, replica_count: u8) -> ReplicationStatus {
+        Self::compute_status_static(replica_count, self.config.min_replicas, self.config.target_replicas)
+    }
+
+    fn compute_status_static(replica_count: u8, min_r: u8, target_r: u8) -> ReplicationStatus {
         if replica_count == 0 { ReplicationStatus::Lost }
-        else if replica_count < self.config.min_replicas { ReplicationStatus::Critical }
-        else if replica_count < self.config.target_replicas / 2 { ReplicationStatus::AtRisk }
-        else if replica_count < self.config.target_replicas { ReplicationStatus::Underreplicated }
+        else if replica_count < min_r { ReplicationStatus::Critical }
+        else if replica_count < target_r / 2 { ReplicationStatus::AtRisk }
+        else if replica_count < target_r { ReplicationStatus::Underreplicated }
         else { ReplicationStatus::Healthy }
     }
 
