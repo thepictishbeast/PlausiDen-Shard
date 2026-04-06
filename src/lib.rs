@@ -30,6 +30,7 @@ pub mod encryption;
 pub mod erasure;
 pub mod error;
 pub mod fragment;
+pub mod integrity;
 pub mod lifecycle;
 pub mod shamir;
 pub mod shard;
