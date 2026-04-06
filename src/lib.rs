@@ -36,6 +36,7 @@ pub mod lifecycle;
 pub mod routing;
 pub mod shamir;
 pub mod shard;
+pub mod versioning;
 
 pub use error::{Result, ShardError};
 pub use fragment::Fragment;
