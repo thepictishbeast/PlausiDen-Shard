@@ -32,6 +32,7 @@ pub mod erasure;
 pub mod error;
 pub mod fragment;
 pub mod integrity;
+pub mod key_cache;
 pub mod key_lifecycle;
 pub mod lifecycle;
 pub mod migration;
