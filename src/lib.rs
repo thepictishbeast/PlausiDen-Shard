@@ -33,6 +33,7 @@ pub mod fragment;
 pub mod integrity;
 pub mod key_lifecycle;
 pub mod lifecycle;
+pub mod replication;
 pub mod routing;
 pub mod shamir;
 pub mod shard;
