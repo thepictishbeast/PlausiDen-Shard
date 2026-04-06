@@ -33,6 +33,7 @@ pub mod encryption;
 pub mod erasure;
 pub mod error;
 pub mod fragment;
+pub mod fragment_lookup_cache;
 pub mod integrity;
 pub mod key_cache;
 pub mod proof_of_storage;
