@@ -43,6 +43,7 @@ pub mod routing;
 pub mod scrubber;
 pub mod shamir;
 pub mod shard;
+pub mod tamper_evidence;
 pub mod versioning;
 
 pub use error::{Result, ShardError};
