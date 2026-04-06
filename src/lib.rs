@@ -33,6 +33,7 @@ pub mod fragment;
 pub mod integrity;
 pub mod key_lifecycle;
 pub mod lifecycle;
+pub mod migration;
 pub mod quorum;
 pub mod repair;
 pub mod replication;
