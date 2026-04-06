@@ -25,6 +25,7 @@
 
 pub mod config;
 pub mod audit;
+pub mod consistency_checker;
 pub mod audit_trail;
 pub mod dead_man;
 pub mod encryption;
