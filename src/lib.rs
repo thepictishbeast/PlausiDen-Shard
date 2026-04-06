@@ -38,6 +38,7 @@ pub mod lifecycle;
 pub mod migration;
 pub mod quorum;
 pub mod rebalancer;
+pub mod redundancy_scheduler;
 pub mod repair;
 pub mod replication;
 pub mod replication_health;
