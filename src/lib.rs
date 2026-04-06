@@ -47,6 +47,7 @@ pub mod replication;
 pub mod replication_health;
 pub mod routing;
 pub mod scrubber;
+pub mod scrub_scheduler;
 pub mod shamir;
 pub mod share_verifier;
 pub mod shard;
