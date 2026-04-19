@@ -98,7 +98,7 @@ impl Rebalancer {
                     .filter(|p| p.utilization() < mean_util)
                     .collect();
                 candidates.sort_by(|a, b|
-                    a.utilization().partial_cmp(&b.utilization()).unwrap());
+                    a.utilization().partial_cmp(&b.utilization()).unwrap_or(std::cmp::Ordering::Equal)); // SAFETY: utilization is bytes_used/bytes_total in [0.0, 1.0]; never NaN but Equal fallback for total ordering
 
                 if let Some(target) = candidates.first() {
                     let target_id = target.peer_id.clone();

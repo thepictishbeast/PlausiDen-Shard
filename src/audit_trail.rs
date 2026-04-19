@@ -66,7 +66,7 @@ impl AuditTrail {
             entry_hash,
         });
 
-        self.entries.last().unwrap()
+        self.entries.last().unwrap() // SAFETY: we just pushed on the line above
     }
 
     /// Verify the entire chain integrity.

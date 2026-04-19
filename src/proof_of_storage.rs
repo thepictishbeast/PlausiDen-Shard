@@ -148,7 +148,7 @@ impl ProofOfStorage {
             .map(|(id, _)| id.clone())
             .collect();
         for id in expired_ids {
-            let challenge = self.challenges.remove(&id).unwrap();
+            let challenge = self.challenges.remove(&id).unwrap(); // SAFETY: `id` came from filtering self.challenges above; still present
             self.expected_hashes.remove(&id);
 
             // Did we already have a verification for this challenge?
