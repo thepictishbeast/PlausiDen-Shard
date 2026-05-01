@@ -1,0 +1,31 @@
+{
+  "schema": "composition-baseline/1",
+  "comment": "Snapshot of pre-existing composition findings. Committed so the CI gate fails only on NEW findings. Re-snapshot via `python3 .github/scripts/composition.py baseline .`",
+  "suppressed": [
+    "rust-manual-derivable|src/audit_trail.rs|manual impl Default for AuditTrail (trivial body)",
+    "rust-manual-derivable|src/cipher_rotation.rs|manual impl Default for RotationPolicy (trivial body)",
+    "rust-manual-derivable|src/consistency_checker.rs|manual impl Default for ConsistencyChecker (trivial body)",
+    "rust-manual-derivable|src/dead_man.rs|manual impl Default for DeadManConfig (trivial body)",
+    "rust-manual-derivable|src/integrity.rs|manual impl Default for IntegrityChecker (trivial body)",
+    "rust-manual-derivable|src/key_cache.rs|manual impl Default for KeyCacheConfig (trivial body)",
+    "rust-manual-derivable|src/key_lifecycle.rs|manual impl Default for KeyManager (trivial body)",
+    "rust-manual-derivable|src/lifecycle.rs|manual impl Default for KeyRotationManager (trivial body)",
+    "rust-manual-derivable|src/lifecycle.rs|manual impl Default for RotationPolicy (trivial body)",
+    "rust-manual-derivable|src/migration.rs|manual impl Default for MigrationCoordinator (trivial body)",
+    "rust-manual-derivable|src/proof_of_storage.rs|manual impl Default for ProofOfStorage (trivial body)",
+    "rust-manual-derivable|src/quorum.rs|manual impl Default for QuorumManager (trivial body)",
+    "rust-manual-derivable|src/rebalancer.rs|manual impl Default for Rebalancer (trivial body)",
+    "rust-manual-derivable|src/redundancy_scheduler.rs|manual impl Default for RedundancyScheduler (trivial body)",
+    "rust-manual-derivable|src/repair.rs|manual impl Default for RepairCoordinator (trivial body)",
+    "rust-manual-derivable|src/replication.rs|manual impl Default for ReplicationManager (trivial body)",
+    "rust-manual-derivable|src/replication_health.rs|manual impl Default for ReplicationHealth (trivial body)",
+    "rust-manual-derivable|src/routing.rs|manual impl Default for FragmentRouter (trivial body)",
+    "rust-manual-derivable|src/scrubber.rs|manual impl Default for ScrubConfig (trivial body)",
+    "rust-manual-derivable|src/scrubber.rs|manual impl Default for Scrubber (trivial body)",
+    "rust-manual-derivable|src/shard.rs|manual impl Default for ShardSpec (trivial body)",
+    "rust-manual-derivable|src/share_verifier.rs|manual impl Default for ShareVerifier (trivial body)",
+    "rust-manual-derivable|src/tamper_evidence.rs|manual impl Default for TamperEvidence (trivial body)",
+    "rust-manual-derivable|src/versioning.rs|manual impl Default for VersionTracker (trivial body)",
+    "rust-manual-derivable|src/versioning.rs|manual impl Default for VersionVector (trivial body)"
+  ]
+}
