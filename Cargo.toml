@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 license = "BSL-1.1"
 description = "Cryptographic sharding engine — post-quantum fragment lifecycle"
-repository = "https://github.com/redcaptian1917/PlausiDen-Shard"
+repository = "https://github.com/thepictishbeast/PlausiDen-Shard"
 
 # no_std support via default-features = false
 [features]
